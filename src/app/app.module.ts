@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,16 +12,21 @@ import 'rxjs/add/operator/switchMap';
 
 import { AppComponent } from './app.component';
 import { PublicationsComponent } from './publications/publications.component';
+import { NewPublicationComponent } from './new-publication/new-publication.component';
+import { PostFormComponent } from './post-form/post-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PublicationsComponent
+    PublicationsComponent,
+    NewPublicationComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],

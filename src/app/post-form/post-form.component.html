@@ -1,0 +1,5 @@
+<div class="form-group">
+    <label for="title">Заглавие</label>
+    <input type="text" name="title">
+    <text-editor [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)"></text-editor>
+</div>
