@@ -1,0 +1,8 @@
+<div>
+    <h2>Последно добавени публикации</h2>
+    <div class="col-md-3" *ngFor="let publication of (publications | async)">
+        <p><strong>{{publication.title}}</strong>
+            <p>Дата: {{publication.date}}</p>
+            <p>Текст: {{publication.text}}</p>
+    </div>
+</div>
