@@ -3,9 +3,9 @@ import { Observable } from 'rxjs/Rx';
 export class Publication {
     constructor(
         public $key: string,
-        public date: string,
-        public text: string,
-        public title: string
+        public title: string,
+        public content: string,
+        public date: string
        ) { }
 
     static fromJsonList(array): Publication[] {
@@ -16,12 +16,12 @@ export class Publication {
         return json.map(Publication.fromJson);
     }
 
-    static fromJson({$key, date, text, title}): Publication {
+    static fromJson({$key, title, content, date}): Publication {
         return new Publication(
             $key,
-            date,
-            text,
-            title
+            title,
+            content,
+            date
             );
     }
 }

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { firebaseConfig } from './environments/firebase.config';
 import { AngularFireModule } from 'angularfire2/index';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -14,19 +15,26 @@ import { AppComponent } from './app.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { NewPublicationComponent } from './new-publication/new-publication.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { AlertModule } from 'ng2-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublicationsComponent,
     NewPublicationComponent,
-    PostFormComponent
+    PostFormComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    AlertModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],

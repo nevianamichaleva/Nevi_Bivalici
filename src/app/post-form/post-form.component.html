@@ -1,5 +1,26 @@
-<div class="form-group">
-    <label for="title">Заглавие</label>
-    <input type="text" name="title">
-    <text-editor [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)"></text-editor>
+<div class="panel-heading">
+    <div class="panel-title text-center">
+        <h1 class="title">Нова публикация</h1>
+        <hr />
+    </div>
+</div>
+<div class="center col-md-6">
+    <form [formGroup]="myDBForm" class="form-horizontal" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Заглавие</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                    <input formControlName="title" type="text" id="title" #title class="form-control">
+                </div>
+            </div>
+            <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
+            <div class="hidden">
+            <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
+            </div>
+        </div>
+        <div class="form-group ">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Запиши</button>
+        </div>
+    </form>
 </div>

@@ -1,7 +1,7 @@
 <div>
     <div class="col-md-3" *ngFor="let publication of (publications | async)">
-        <p><strong>{{publication.title}}</strong>
-            <p>Дата: {{publication.date}}</p>
-            <p>Текст: {{publication.text}}</p>
+        <p><strong>{{publication.title}}</strong></p>
+        <p>Дата: {{publication.date}}</p>
+        <div [innerHTML]="publication.content"></div>
     </div>
 </div>

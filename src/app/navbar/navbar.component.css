@@ -1,0 +1,42 @@
+#logo {
+    margin: -20px 0 10px 40px;
+    max-width: 80px;
+}
+
+#titleText {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    color: #5FFF04;
+}
+
+#titleText p {
+    line-height: 10px;
+}
+
+#rightNav {
+    list-style-type: none;
+}
+
+#rightNav li {
+    display: inline;
+    margin-right: 15px;
+}
+
+#rightNav li a {
+    text-decoration: none;
+    color: #5FFF04;
+    font-size: 18px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#rightNav li a:hover {
+    font-weight: bold;
+}
+
+.navbar-right {
+    margin-top: 8px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}

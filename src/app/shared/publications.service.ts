@@ -9,16 +9,34 @@ import { database } from 'firebase';
 
 @Injectable()
 export class PublicationsService {
-sdkDb: any;
+    sdkDb: any;
 
-  constructor(private db: AngularFireDatabase,
+    constructor(private db: AngularFireDatabase,
         @Inject(FirebaseRef) fb,
         private http: Http
     ) {
         this.sdkDb = fb.database().ref();
     }
-findAllPublications(): Observable<Publication[]> {
+
+    findAllPublications(): Observable<Publication[]> {
         return this.db.list('publications')
             .map(Publication.fromJsonArray);
+    }
+    
+    createNewPublication(publication: any): Observable<any> {
+        const subject = new Subject();
+        this.sdkDb.child('publications').push(publication)
+        .then(
+            val => {
+                subject.next(val);
+                subject.complete();
+
+            },
+            err => {
+                subject.error(err);
+                subject.complete();
+            }
+            );
+        return subject.asObservable();
     }
 }
