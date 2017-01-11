@@ -4,6 +4,8 @@ export class Publication {
     constructor(
         public $key: string,
         public title: string,
+        public image: string,
+        public category: string,
         public content: string,
         public date: string
        ) { }
@@ -16,10 +18,12 @@ export class Publication {
         return json.map(Publication.fromJson);
     }
 
-    static fromJson({$key, title, content, date}): Publication {
+    static fromJson({$key, title, image, category, content, date}): Publication {
         return new Publication(
             $key,
             title,
+            image,
+            category,
             content,
             date
             );

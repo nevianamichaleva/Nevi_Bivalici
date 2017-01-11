@@ -29,6 +29,7 @@ export class NewPublicationComponent implements OnInit, AfterViewInit, OnDestroy
     tinymce.init({
       selector: '#' + this.elementId,
       height: 500,
+      width: 900,
       file_picker_types: 'file image media',
       plugins: [
         "advlist autolink lists link image charmap print preview anchor",

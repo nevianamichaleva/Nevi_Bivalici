@@ -10,15 +10,36 @@
             <label for="title">Заглавие</label>
             <div class="cols-sm-10">
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
                     <input formControlName="title" type="text" id="title" #title class="form-control">
                 </div>
             </div>
-            <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
-            <div class="hidden">
-            <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
+        </div>
+        <div class="form-group">
+                <label for="image">Добави снимка</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-picture"></span>
+                        <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
+                    </div>
+                </div>
+            </div>
+        <div class="form-group">
+            <label for="category">Категория</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
+                    <input formControlName="category" type="text" id="category" #category class="form-control">
+                </div>
             </div>
         </div>
+        <div class="form-group">
+            <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
+        </div>
+        <div class="hidden">
+            <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
+        </div>
+
         <div class="form-group ">
             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Запиши</button>
         </div>
