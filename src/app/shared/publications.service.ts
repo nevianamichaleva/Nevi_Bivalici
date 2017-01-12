@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2';
 import { Observable, Subject } from 'rxjs/Rx';
 import { Publication } from '../model/publication.model';
 import { FirebaseListFactoryOpts } from 'angularfire2/interfaces';
+import { DataService } from './data.service';
 import { Http } from '@angular/http';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, FirebaseRef } from 'angularfire2';
 import { database } from 'firebase';
@@ -11,17 +12,24 @@ import { database } from 'firebase';
 export class PublicationsService {
     sdkDb: any;
 
-    constructor(private db: AngularFireDatabase,
-        @Inject(FirebaseRef) fb,
+    constructor(private db: DataService,
+    @Inject(FirebaseRef) fb,
         private http: Http
-    ) {
-        this.sdkDb = fb.database().ref();
-    }
+    ) { this.sdkDb = fb.database().ref();}
 
     findAllPublications(): Observable<Publication[]> {
-        return this.db.list('publications')
+        return this.db.getCollection('publications')
             .map(Publication.fromJsonArray);
     }
+
+    findLastestPublications(count = 1) {
+        let query = {
+            limitToLast: count
+        };
+        return this.db.getCollection('publications', { query })
+            .map(Publication.fromJsonArray);
+    }
+
     
     createNewPublication(publication: any): Observable<any> {
         const subject = new Subject();

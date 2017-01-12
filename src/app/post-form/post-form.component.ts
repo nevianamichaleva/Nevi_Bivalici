@@ -14,15 +14,21 @@ export class PostFormComponent implements OnInit {
   tinyBody: any;
   myDBForm: FormGroup;
   selectedFile: any;
+  choosen: boolean;
+  category: string;
 
   constructor(private fb: FormBuilder, private publicationsService: PublicationsService) { }
 
   ngOnInit() {
+    this.choosen = false;
+    this.category = "Шиене";
+
     this.myDBForm = this.fb.group({
       title: '',
       image: '',
       category: '',
       content: '',
+      choosen: '',
       date: ''
     });
   }
@@ -31,9 +37,17 @@ export class PostFormComponent implements OnInit {
     this.tinyBody = textValue;
   }
 
+  onChoosenChange(deviceValue) {
+    this.choosen = deviceValue;
+}
+
+onCategoryChange(deviceValue) {
+    this.category = deviceValue;
+}
+
   onImageSelected(e: any) {
     this.selectedFile = e.target.files[0];
-    console.log(this.selectedFile);
+    //console.log(this.selectedFile);
   }
 
   onSubmit() {
@@ -46,6 +60,8 @@ export class PostFormComponent implements OnInit {
                 + currentdate.getSeconds();
     this.myDBForm.patchValue({ date: datetime });
     this.myDBForm.patchValue({ content: this.tinyBody });
+    this.myDBForm.patchValue({ choosen: this.choosen });
+    this.myDBForm.patchValue({ category: this.category });
 
     if (this.selectedFile) {
       let firebase = require('firebase');

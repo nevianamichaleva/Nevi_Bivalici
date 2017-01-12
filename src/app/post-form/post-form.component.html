@@ -16,20 +16,41 @@
             </div>
         </div>
         <div class="form-group">
-                <label for="image">Добави снимка</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon glyphicon glyphicon-picture"></span>
-                        <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
-                    </div>
+            <label for="image">Добави снимка</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-picture"></span>
+                    <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
                 </div>
             </div>
+        </div>
         <div class="form-group">
             <label for="category">Категория</label>
             <div class="cols-sm-10">
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
-                    <input formControlName="category" type="text" id="category" #category class="form-control">
+                    <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event.target.value)">
+                        <option value="Шиене">Шиене</option>
+                        <option value="Детски дрехи">Детски дрехи</option>
+                        <option value="Подаръци">Подаръци</option>
+                        <option value="Мебели">Мебели</option>
+                        <option value="Рециклиране">Рециклиране</option>
+                        <option value="Преправяне">Преправяне</option>
+                        <option value="От старо - ново">От старо - ново</option>
+                        <option value="Други">Други</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="choosen">В избрани</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-star-empty"></span>
+                    <select formControlName="choosen" type="text" id="choosen" #choosen class="form-control" (change)="onChoosenChange($event.target.value)">
+                        <option value="true">Да</option>
+                        <option value="false">Не</option>
+                    </select>
                 </div>
             </div>
         </div>

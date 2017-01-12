@@ -12,3 +12,11 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+router-outlet {
+    float: left;
+}
+
+app-choosen {
+    float: right;
+}

@@ -1,3 +1,4 @@
+import { DataService } from './shared/data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,7 @@ import { PostFormComponent } from './post-form/post-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AlertModule } from 'ng2-bootstrap';
+import { ChoosenComponent } from './choosen/choosen.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AlertModule } from 'ng2-bootstrap';
     NewPublicationComponent,
     PostFormComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ChoosenComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { AlertModule } from 'ng2-bootstrap';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
