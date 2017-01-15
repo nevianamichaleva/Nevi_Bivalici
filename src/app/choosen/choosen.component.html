@@ -1,4 +1,4 @@
-<div class="panel panel-success">
+<!--<div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">Избрани</h3>
     </div>
@@ -12,4 +12,18 @@
             <a href="#"><img [src]="publication.image" [alt]="publication.title" width="120px"></a>
         </div>
     </div>
+</div>-->
+
+<div class="s-12 l-3">
+    <aside>
+        <div *ngFor="let publication of (publications | async)">
+            <div *ngIf="publication.choosen">
+                <img [src]="publication.image" alt="{{publication.title}}">
+                <div class="aside-block margin-bottom">
+                    <h3>{{publication.title}}</h3>
+                    <p>Lorem ipsum dolor sit amet, conse ctetuer. Duis autem vemeu iriure dolor adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p>
+                </div>
+            </div>
+        </div>
+    </aside>
 </div>

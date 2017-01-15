@@ -28,7 +28,7 @@ export class PublicationsService {
             .map(Category.fromJsonArray);
     }
 
-    findLastestPublications(count = 1) {
+    findLastestPublications(count = 5) {
         let query = {
             limitToLast: count
         };

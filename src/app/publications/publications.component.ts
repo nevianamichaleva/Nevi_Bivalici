@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class PublicationsComponent implements OnInit {
 publications: Observable<Publication[]>;
+
   constructor(private publicationsService: PublicationsService) { }
 
   ngOnInit() {

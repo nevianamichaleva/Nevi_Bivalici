@@ -1,62 +1,41 @@
-<div class="row">
-    <div class="col-6 col-md-2">
-        <img id="logo" alt="Brand" src="../../images/Icon.png">
-    </div>
-    <div id="titleText" class="col-6 col-md-6">
-        <!--<p>Тук няма нищо за продан, всичко е безплатно, защото</p>
-        <p>с много любов и малко умения можете да създадете прекрасни</p>
-        <p>творения за вас и вашите приятели...Вижте как го правя аз...</p>-->
-    </div>
-    <div class="col-6 col-md-4">
-        <ul id="rightNav">
-            <li><a href="#">За мен</a></li>
-            <li><a href="#">Контакти</a></li>
-            <li>
-                <a target="_blanc" href="https://www.facebook.com/NeviBivalici/"><img src="../../images/facebook.png"></a>
-            </li>
-            <li>
-                <a target="_blanc" href="https://plus.google.com/u/0/+NeviBivalici"><img src="../../images/google-icon.png"></a>
-            </li>
-            <li>
-                <a target="_blanc" href="http://nevibivalici.blogspot.com/"><img src="../../images/blogger.png"></a>
-            </li>
-        </ul>
-    </div>
-</div>
-<!-- Static navbar -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Начало</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категории<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li *ngFor="let category of (categories | async)"><a href="#">{{category.name}}</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="col-lg-3 navbar-right">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-        <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
-      </span>
-                </div>
-                <!-- /input-group -->
+<header class="margin-bottom">
+    <div class="line">
+        <nav>
+            <div class="top-nav">
+                <p class="nav-text"></p>
+                <a class="logo" [routerLink]="home">
+                    <img src="../../images/logo_horizontal.png">
+                </a>
+                <h1>free crafts tutorials</h1>
+                <ul class="top-ul right">
+                    <li>
+                        <a href="index.html">Блог</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Категории<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li *ngFor="let category of (categories | async)"><a href="#">{{category.name}}</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about.html">За мен</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Контакти</a>
+                    </li>
+                    <div class="social right">
+                        <a target="_blank" href="https://www.facebook.com/NeviBivalici/">
+                            <i class="icon-facebook_circle icon2x"></i>
+                        </a>
+                        <a target="_blank" href="https://plus.google.com/u/0/+NeviBivalici">
+                            <i class="icon-google_plus_circle icon2x"></i>
+                        </a>
+                        <a target="_blank" href="http://nevibivalici.blogspot.com/">
+                            <i class="icon-dribbble_circle icon2x"></i>
+                        </a>
+                    </div>
+                </ul>
             </div>
-            <!-- /.col-lg-6 -->
-        </div>
-        <!--/.nav-collapse -->
+        </nav>
     </div>
-    <!--/.container-fluid -->
-</nav>
+</header>

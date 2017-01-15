@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { ChoosenComponent } from './choosen/choosen.component';
+import { PublicationCardComponent } from './publication-card/publication-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ChoosenComponent } from './choosen/choosen.component';
     PostFormComponent,
     NavbarComponent,
     FooterComponent,
-    ChoosenComponent
+    ChoosenComponent,
+    PublicationCardComponent
   ],
   imports: [
     BrowserModule,
