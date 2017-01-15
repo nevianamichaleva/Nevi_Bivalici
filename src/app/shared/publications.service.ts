@@ -1,3 +1,4 @@
+import { Category } from './../model/category.model';
 import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2';
 import { Observable, Subject } from 'rxjs/Rx';
@@ -22,6 +23,11 @@ export class PublicationsService {
             .map(Publication.fromJsonArray);
     }
 
+    findAllCategories(): Observable<Category[]> {
+        return this.db.getCollection('category')
+            .map(Category.fromJsonArray);
+    }
+
     findLastestPublications(count = 1) {
         let query = {
             limitToLast: count
@@ -30,7 +36,23 @@ export class PublicationsService {
             .map(Publication.fromJsonArray);
     }
 
-    
+    createNewCategory(category: any): Observable<any> {
+        const subject = new Subject();
+        this.sdkDb.child('category').push(category)
+        .then(
+            val => {
+                subject.next(val);
+                subject.complete();
+
+            },
+            err => {
+                subject.error(err);
+                subject.complete();
+            }
+            );
+        return subject.asObservable();
+    }
+
     createNewPublication(publication: any): Observable<any> {
         const subject = new Subject();
         this.sdkDb.child('publications').push(publication)

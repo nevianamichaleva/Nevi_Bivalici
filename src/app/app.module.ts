@@ -1,3 +1,4 @@
+import { PublicationsService } from './shared/publications.service';
 import { DataService } from './shared/data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,7 +41,7 @@ import { ChoosenComponent } from './choosen/choosen.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [DataService],
+  providers: [DataService, PublicationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

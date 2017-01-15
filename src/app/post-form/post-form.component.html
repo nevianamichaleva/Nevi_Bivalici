@@ -30,29 +30,29 @@
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
                     <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event.target.value)">
-                        <option value="Шиене">Шиене</option>
-                        <option value="Детски дрехи">Детски дрехи</option>
-                        <option value="Подаръци">Подаръци</option>
-                        <option value="Мебели">Мебели</option>
-                        <option value="Рециклиране">Рециклиране</option>
-                        <option value="Преправяне">Преправяне</option>
-                        <option value="От старо - ново">От старо - ново</option>
-                        <option value="Други">Други</option>
+                        <option *ngFor="let category of (categories | async)" [value]="category.name">{{category.name}}</option>
                     </select>
                 </div>
+            </div>
+            <div>
+                <div [formGroup]="categoryForm" [style.display]="getStyle()">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" (change)="onInput($event.target.value)" class="form-control" formContolName="name" id="name" #name placeholder="Категория">
+                            <span class="input-group-btn">
+                                <a class="btn btn-default" (click)="onCategoryAdd()">Добави</a>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <a (click)="showStyle = !showStyle;">Добави категория</a>
             </div>
         </div>
         <div class="form-group">
             <label for="choosen">В избрани</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon glyphicon glyphicon-star-empty"></span>
-                    <select formControlName="choosen" type="text" id="choosen" #choosen class="form-control" (change)="onChoosenChange($event.target.value)">
-                        <option value="true">Да</option>
-                        <option value="false">Не</option>
-                    </select>
-                </div>
-            </div>
+            <input type="checkbox" formControlName="choosen" type="checkbox" id="choosen" #choosen>
         </div>
         <div class="form-group">
             <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
@@ -60,7 +60,6 @@
         <div class="hidden">
             <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
         </div>
-
         <div class="form-group ">
             <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Запиши</button>
         </div>
