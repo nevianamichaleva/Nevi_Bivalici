@@ -78,13 +78,12 @@ export class PostFormComponent implements OnInit {
 
   onSubmit() {
     let currentdate = new Date();
+    console.log(currentdate.toString());
     let datetime = currentdate.getDate() + '/'
       + (currentdate.getMonth() + 1) + '/'
-      + currentdate.getFullYear() + ' @ '
-      + currentdate.getHours() + ':'
-      + currentdate.getMinutes() + ':'
-      + currentdate.getSeconds();
-    this.myDBForm.patchValue({ date: datetime });
+      + currentdate.getFullYear();
+  
+    this.myDBForm.patchValue({ date: currentdate.toString() });
     this.myDBForm.patchValue({ content: this.tinyBody });
     this.myDBForm.patchValue({ category: this.category });
 

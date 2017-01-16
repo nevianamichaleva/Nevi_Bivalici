@@ -14,16 +14,14 @@
     </div>
 </div>-->
 
-<div class="s-12 l-3">
-    <aside>
-        <div *ngFor="let publication of (publications | async)">
-            <div *ngIf="publication.choosen">
-                <img [src]="publication.image" alt="{{publication.title}}">
-                <div class="aside-block margin-bottom">
-                    <h3>{{publication.title}}</h3>
-                    <p>Lorem ipsum dolor sit amet, conse ctetuer. Duis autem vemeu iriure dolor adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p>
-                </div>
+<aside>
+    <div *ngFor="let publication of (publications | async)">
+        <div *ngIf="publication.choosen">
+            <img [src]="publication.image" alt="{{publication.title}}">
+            <div class="aside-block margin-bottom">
+                <h3>{{publication.title}}</h3>
+                <p>Lorem ipsum dolor sit amet, conse ctetuer. Duis autem vemeu iriure dolor adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam</p>
             </div>
         </div>
-    </aside>
-</div>
+    </div>
+</aside>

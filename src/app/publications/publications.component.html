@@ -2,9 +2,9 @@
 <section id="home-section" class="line">
     <div class="margin">
         <!-- ARTICLES -->
-        <div class="s-12 l-9" *ngFor="let publication of (publications | async); let i = index">
+        <div class="s-12 l-9">
             <!-- ARTICLE 1 -->
-            <article [ngClass]="{'right-align': i%2 === 0}" class="post-{{i+1}} line">
+            <article *ngFor="let publication of (publications | async); let i = index" [ngClass]="{'right-align': i%2 === 0}" class="post-{{i+1}} line">
                 <!-- image -->
                 <div class="s-12 l-6 post-image">
                     <a href="post-1.html">
@@ -21,12 +21,14 @@
                 </div>
                 <!-- date -->
                 <div class="s-12 l-1 post-date">
-                    <p class="date">{{publication.date}}</p>
-                    <p class="month">{{publication.date}}</p>
+                    <p class="date">{{(publication.date | date:'dd')}}</p>
+                    <p class="month">{{(publication.date | date:'MMM')}}</p>
                 </div>
             </article>
         </div>
         <!-- SIDEBAR -->
-        <app-choosen></app-choosen>
+        <div class="s-12 l-3">
+            <app-choosen></app-choosen>
+        </div>
     </div>
 </section>

@@ -1,3 +1,10 @@
+body {
+    background: none repeat scroll 0 0 #0b192f;
+    color: #fff;
+    font-family: roboto;
+    font-weight: 300;
+}
+
 .hidden {
     display: none;
 }
