@@ -1,3 +1,5 @@
+import { SanitizeHtmlPipe } from './shared/pipes/sanitizeHTML.pipe';
+import { PointsPipe } from './shared/pipes/points.pipe';
 import { PublicationsService } from './shared/publications.service';
 import { DataService } from './shared/data.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +24,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AlertModule } from 'ng2-bootstrap';
 import { ChoosenComponent } from './choosen/choosen.component';
 import { PublicationCardComponent } from './publication-card/publication-card.component';
+import { ContactComponent } from './contact/contact.component';
+import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { PublicationCardComponent } from './publication-card/publication-card.co
     NavbarComponent,
     FooterComponent,
     ChoosenComponent,
-    PublicationCardComponent
+    PublicationCardComponent,
+    PointsPipe,
+    SanitizeHtmlPipe,
+    ContactComponent,
+    PublicationDetailComponent
   ],
   imports: [
     BrowserModule,

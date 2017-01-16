@@ -36,6 +36,11 @@ export class PublicationsService {
             .map(Publication.fromJsonArray);
     }
 
+    findPublicationByKey(publicationKey: string): Observable<Publication> {
+        return this.db.getItem(`publications/${publicationKey}`)
+            .map(Publication.fromJson);
+    }
+
     createNewCategory(category: any): Observable<any> {
         const subject = new Subject();
         this.sdkDb.child('category').push(category)
