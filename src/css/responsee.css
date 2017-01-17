@@ -60,7 +60,30 @@ a:active {
 img {
     border: 0;
     height: auto;
+    width: 100%;
+}
+
+.detail img {
+    border: 0;
+    height: auto;
     width: 60%;
+    margin: 0.938em 0 0.938em 0;
+}
+
+.detail {
+    padding: 2.5em;
+    font-size: 1.06em;
+}
+
+.detail h4 {
+    margin-top: 1.250em;
+    text-align: right;
+}
+
+.detail h1 {
+    text-align: center;
+    color: lawngreen;
+    margin-bottom: 1em;
 }
 
 table {

@@ -21,10 +21,10 @@
                                 <p class="margin-bottom"><i class="icon-linked_in icon"></i> <a href="https://bg.linkedin.com/in/neviana-michaleva-4b6218119">  LinkedIn</a></p>
                             </div>
                             <div class="s-12 l-6">
-                                <form class="customform" action="">
-                                    <div class="s-12"><input name="" placeholder="Вашият e-mail" title="Your e-mail" type="text" /></div>
-                                    <div class="s-12"><input name="" placeholder="Вашето име" title="Your name" type="text" /></div>
-                                    <div class="s-12"><textarea placeholder="Вашето съобщение" name="" rows="5"></textarea></div>
+                                <form [formGroup]="myForm" class="customform" (ngSubmit)="onSent()">
+                                    <div class="s-12"><input formControlName="email" #email placeholder="Вашият e-mail" title="Your e-mail" type="text" /></div>
+                                    <div class="s-12"><input formControlName="name" #name placeholder="Вашето име" title="Your name" type="text" /></div>
+                                    <div class="s-12"><textarea formControlName="notes" #notes placeholder="Вашето съобщение" name="" rows="5"></textarea></div>
                                     <button type="submit">Изпрати</button>
                                 </form>
                             </div>

@@ -213,6 +213,11 @@ footer a:visited {
     font-size: 0.9em;
 }
 
+footer a:hover {
+    font-size: 1em;
+    color: #f0f2f5;
+}
+
 #article-section article {
     background: none repeat scroll 0 0 #fff;
 }

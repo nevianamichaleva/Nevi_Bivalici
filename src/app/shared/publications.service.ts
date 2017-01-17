@@ -74,4 +74,9 @@ export class PublicationsService {
             );
         return subject.asObservable();
     }
+
+    createNewContactMessage(msg: any): firebase.database.ThenableReference {
+        return this.db.addItemToCollection('messages', msg);
+    }
+
 }
