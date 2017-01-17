@@ -79,4 +79,13 @@ export class PublicationsService {
         return this.db.addItemToCollection('messages', msg);
     }
 
+    findPublicationsByCategory(id:string) {
+        let query = {
+            orderByChild: 'category',
+            equalTo: id
+        };
+        return this.db.getCollection('publications', { query })
+            .map(Publication.fromJsonArray);
+    }
+
 }

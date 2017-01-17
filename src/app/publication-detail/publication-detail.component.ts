@@ -13,8 +13,10 @@ export class PublicationDetailComponent implements OnInit {
 publication: Observable<Publication>;
 publicationKey: string;
 
-  constructor(private route: ActivatedRoute,
-    private publicationService: PublicationsService,) { }
+  constructor(
+    private route: ActivatedRoute,
+    private publicationService: PublicationsService
+    ) { }
 
   ngOnInit() {
     this.publicationKey = this.route.snapshot.params['id'];

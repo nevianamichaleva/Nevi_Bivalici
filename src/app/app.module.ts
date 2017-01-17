@@ -26,6 +26,7 @@ import { ChoosenComponent } from './choosen/choosen.component';
 import { PublicationCardComponent } from './publication-card/publication-card.component';
 import { ContactComponent } from './contact/contact.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PublicationDetailComponent } from './publication-detail/publication-det
     PointsPipe,
     SanitizeHtmlPipe,
     ContactComponent,
-    PublicationDetailComponent
+    PublicationDetailComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
