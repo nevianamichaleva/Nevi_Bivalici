@@ -1,0 +1,9 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-6 l-6 center">
+            <div *ngIf="message" class="animated fadeOut" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+                {{message.text}}
+            </div>
+        </div>
+    </div>
+</section>

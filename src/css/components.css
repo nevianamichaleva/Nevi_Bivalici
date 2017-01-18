@@ -29,10 +29,10 @@ form.customform input[type="file"] {
  width: 100%;
 }
 form.customform input[type="radio"], form.customform input[type="checkbox"] {
- margin-right: 0.625em;
- width:auto;
+ margin: 0.625em 0.625em 0 0.625em;
+ width:1.5em;
  padding:0;
- height:auto;
+ height:1.5em;
 }
 form.customform option {padding: 0.625em;}
 form.customform select[multiple="multiple"] {height: auto;}

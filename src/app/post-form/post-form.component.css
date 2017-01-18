@@ -1,0 +1,33 @@
+.title {
+    text-align: center;
+}
+
+.customform {
+    padding: 1.563em 0 0 1.875em;
+}
+
+label {
+    font-size: 1.250em;
+}
+
+h1 {
+    color: limegreen;
+}
+
+a {
+    font-size: 1.250em;
+    color: white;
+}
+
+.btn {
+    width: 12em;
+    background-color: #162b4d;
+    color: #637693;
+    font-size: 1.250em;
+    font-weight: bold;
+    margin: 1.063em 0 0 19em;
+}
+
+.btn:hover {
+    background-color: #162b4d;
+}

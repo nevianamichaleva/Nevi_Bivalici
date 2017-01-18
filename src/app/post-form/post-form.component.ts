@@ -1,3 +1,4 @@
+import { AlertService } from './../shared/alert/alert.service';
 import { Category } from './../model/category.model';
 import { PublicationsService } from './../shared/publications.service';
 import { Publication } from './../model/publication.model';
@@ -21,7 +22,11 @@ export class PostFormComponent implements OnInit {
   showStyle: false;
   newCategory: string;
 
-  constructor(private fb: FormBuilder, private publicationsService: PublicationsService) { }
+  constructor(
+    private fb: FormBuilder, 
+    private publicationsService: PublicationsService, 
+    private alertService: AlertService
+    ) { }
 
   ngOnInit() {
     this.category = "Шиене";
@@ -70,9 +75,9 @@ export class PostFormComponent implements OnInit {
     this.publicationsService.createNewCategory(this.categoryForm.value)
       .subscribe(
       () => {
-        console.log('Категорията е записана');
+        this.alertService.success('Категорията е записана', true);
       },
-      err => console.log(`Грешка при запис ${err}`)
+      err => this.alertService.error(`Грешка при запис ${err}`)
       )
   }
 
@@ -101,20 +106,22 @@ export class PostFormComponent implements OnInit {
           this.publicationsService.createNewPublication(this.myDBForm.value)
             .subscribe(
             () => {
-              console.log('Публикацията е записана');
+              this.alertService.success('Публикацията е записана', true);
               this.myDBForm.reset();
+              tinymce.activeEditor.setContent('');
             },
-            err => console.log(`Грешка при запис ${err}`)
+            err => this.alertService.error(`Грешка при запис ${err}`)
             )
         });
     } else {
       this.publicationsService.createNewPublication(this.myDBForm.value)
         .subscribe(
         () => {
-          console.log('Публикацията е записана');
+          this.alertService.success('Публикацията е записана');
           this.myDBForm.reset();
+          tinymce.activeEditor.setContent('');
         },
-        err => console.log(`Грешка при запис ${err}`)
+        err => this.alertService.error(`Грешка при запис ${err}`)
         )
     }
   }

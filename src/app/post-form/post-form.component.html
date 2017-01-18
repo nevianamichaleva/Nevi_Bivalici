@@ -1,67 +1,67 @@
-<div class="panel-heading">
-    <div class="panel-title text-center">
-        <h1 class="title">Нова публикация</h1>
-        <hr />
-    </div>
-</div>
-<div class="center col-md-6">
-    <form [formGroup]="myDBForm" class="form-horizontal" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="title">Заглавие</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
-                    <input formControlName="title" type="text" id="title" #title class="form-control">
-                </div>
-            </div>
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-12 l-12">
+            <h1 class="title">Нова публикация</h1>
+            <hr />
         </div>
-        <div class="form-group">
-            <label for="image">Добави снимка</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon glyphicon glyphicon-picture"></span>
-                    <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
+        <div class="s-12 l-12">
+            <form [formGroup]="myDBForm" class="s-11 customform" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="title">Заглавие</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
+                            <input formControlName="title" type="text" id="title" #title class="form-control">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="category">Категория</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
-                    <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event.target.value)">
+                <div class="form-group">
+                    <label for="image">Добави снимка</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-picture"></span>
+                            <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Категория</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
+                            <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event.target.value)">
                         <option *ngFor="let category of (categories | async)" [value]="category.name">{{category.name}}</option>
                     </select>
-                </div>
-            </div>
-            <div>
-                <div [formGroup]="categoryForm" [style.display]="getStyle()">
-                    <div class="col-lg-6">
-                        <div class="input-group">
-                            <input type="text" (change)="onInput($event.target.value)" class="form-control" formContolName="name" id="name" #name placeholder="Категория">
-                            <span class="input-group-btn">
-                                <a class="btn btn-default" (click)="onCategoryAdd()">Добави</a>
-                            </span>
                         </div>
-                        <!-- /input-group -->
                     </div>
-                    <!-- /.col-lg-6 -->
+                    <div>
+                        <div [formGroup]="categoryForm" [style.display]="getStyle()">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input type="text" (change)="onInput($event.target.value)" class="form-control" formContolName="name" id="name" #name placeholder="Категория">
+                                    <span><a (click)="onCategoryAdd()">Добави</a></span>
+                                </div>
+                                <!-- /input-group -->
+                            </div>
+                            <!-- /.col-lg-6 -->
+                        </div>
+                        <a (click)="showStyle = !showStyle;">Добави категория</a>
+                    </div>
                 </div>
-                <a (click)="showStyle = !showStyle;">Добави категория</a>
-            </div>
+                <div class="form-group">
+                    <label for="choosen">В избрани</label>
+                    <input formControlName="choosen" type="checkbox" id="choosen" #choosen>
+                </div>
+                <div class="form-group">
+                    <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
+                </div>
+                <div class="hidden">
+                    <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
+                </div>
+                <div class="form-group ">
+                    <button class="btn" type="submit">Запиши</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="choosen">В избрани</label>
-            <input type="checkbox" formControlName="choosen" type="checkbox" id="choosen" #choosen>
-        </div>
-        <div class="form-group">
-            <text-editor formControlName="content" [elementId]="'post-body'" (onEditorKeyup)="onBodyTextEditorKeyUp($event)" ngDefaultControl></text-editor>
-        </div>
-        <div class="hidden">
-            <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
-        </div>
-        <div class="form-group ">
-            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Запиши</button>
-        </div>
-    </form>
-</div>
+    </div>
+</section>

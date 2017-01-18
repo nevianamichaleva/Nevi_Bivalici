@@ -1,3 +1,5 @@
+import { AlertService } from './shared/alert/alert.service';
+import { AlertComponent } from './shared/alert/alert.component';
 import { SanitizeHtmlPipe } from './shared/pipes/sanitizeHTML.pipe';
 import { PointsPipe } from './shared/pipes/points.pipe';
 import { PublicationsService } from './shared/publications.service';
@@ -21,7 +23,6 @@ import { NewPublicationComponent } from './new-publication/new-publication.compo
 import { PostFormComponent } from './post-form/post-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { AlertModule } from 'ng2-bootstrap';
 import { ChoosenComponent } from './choosen/choosen.component';
 import { PublicationCardComponent } from './publication-card/publication-card.component';
 import { ContactComponent } from './contact/contact.component';
@@ -42,18 +43,18 @@ import { CategoryComponent } from './category/category.component';
     SanitizeHtmlPipe,
     ContactComponent,
     PublicationDetailComponent,
-    CategoryComponent
+    CategoryComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
-    AlertModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [DataService, PublicationsService],
+  providers: [DataService, PublicationsService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

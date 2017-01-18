@@ -16,7 +16,7 @@
                     <a [routerLink]="['/publication', publication.$key]">
                         <h2>{{publication.title}}</h2>
                     </a>
-                    <p [innerHTML]="(publication.content | slice:0:250 | points | sanitizeHtml)">
+                    <p [innerHTML]="(publication.content | slice:0:150 | points | sanitizeHtml)">
                     </p>
                 </div>
                 <!-- date -->
