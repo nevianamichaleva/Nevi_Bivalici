@@ -1,3 +1,5 @@
+import { AuthGuard } from './shared/auth/auth.guard';
+import { AuthService } from './shared/auth/auth.service';
 import { AlertService } from './shared/alert/alert.service';
 import { AlertComponent } from './shared/alert/alert.component';
 import { SanitizeHtmlPipe } from './shared/pipes/sanitizeHTML.pipe';
@@ -9,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { firebaseConfig } from './environments/firebase.config';
+import { firebaseConfig, authConfig } from './environments/firebase.config';
 import { AngularFireModule } from 'angularfire2/index';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -28,6 +30,7 @@ import { PublicationCardComponent } from './publication-card/publication-card.co
 import { ContactComponent } from './contact/contact.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 import { CategoryComponent } from './category/category.component';
+import { LoginComponent } from './shared/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { CategoryComponent } from './category/category.component';
     ContactComponent,
     PublicationDetailComponent,
     CategoryComponent,
-    AlertComponent
+    AlertComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,9 @@ import { CategoryComponent } from './category/category.component';
     HttpModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, authConfig)
   ],
-  providers: [DataService, PublicationsService, AlertService],
+  providers: [DataService, PublicationsService, AlertService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

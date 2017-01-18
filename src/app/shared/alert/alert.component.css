@@ -17,9 +17,19 @@
 }
 
 .alert {
-    padding: 8px 35px 8px 14px;
-    margin-top: 18px;
-    margin-bottom: 18px;
+    position: fixed;
+    margin-top: 2.125em;
+    margin-left: 17.6em;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 30.25em;
+    height: 3.625em;
+    overflow: auto;
+    /* Enable scroll if needed */
+    padding: 20px 35px 8px 20px;
     color: #c09853;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     background-color: #fcf8e3;
@@ -27,6 +37,7 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+    font-size: 20px;
 }
 
 .alert-heading {

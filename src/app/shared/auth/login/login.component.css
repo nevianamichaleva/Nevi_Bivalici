@@ -1,0 +1,50 @@
+.title {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.login {
+    text-align: center;
+    padding-bottom: 2.5em;
+    padding-top: 2.5em;
+}
+
+label {
+    font-size: 1.250em;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 20em;
+    height: 2.500em;
+    border-radius: 8px;
+    font-size: 1.250em;
+    margin-bottom: 2.500em;
+    margin-top: 1.250em;
+    padding-left: 0.250em;
+}
+
+h1 {
+    color: limegreen;
+}
+
+a {
+    font-size: 1.250em;
+    color: white;
+}
+
+.btn {
+    width: 12em;
+    background-color: #162b4d;
+    color: #637693;
+    margin-top: 1.250em;
+    font-size: 1.250em;
+    font-weight: bold;
+    height: 2.500em;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background-color: #162b4d;
+}

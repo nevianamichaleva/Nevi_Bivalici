@@ -1,0 +1,33 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-12 l-12">
+            <h1 class="title">Администраторски вход</h1>
+            <hr />
+        </div>
+        <div class="s-12 l-12">
+            <form class="login" [formGroup]="myForm" (ngSubmit)="onSignIn()">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-mail" aria-hidden="true"></i></span>
+                            <input formControlName="email" type="email" id="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Парола</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="icon-lock" aria-hidden="true"></i></span>
+                            <input formControlName="password" type="password" id="password" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <button class="btn" type="submit" [disabled]="!myForm.valid">Вход</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
