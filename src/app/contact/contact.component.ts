@@ -1,3 +1,4 @@
+import { AlertService } from './../shared/alert/alert.service';
 import { PublicationsService } from './../shared/publications.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -11,7 +12,8 @@ export class ContactComponent implements OnInit {
 myForm: FormGroup;
   constructor(
     private fb: FormBuilder,
-    private publicationsService: PublicationsService
+    private publicationsService: PublicationsService,
+    private alertService: AlertService
     ) { }
 
   ngOnInit() {
@@ -24,10 +26,10 @@ myForm: FormGroup;
   onSent() {
     this.publicationsService.createNewContactMessage(this.myForm.value)
       .then(() => {
-        console.log('Съобщението е изпратено');
+        this.alertService.success('Съобщението е изпратено', true);
         this.myForm.reset();
       })
-      .catch(err => console.log(`Грешка при изпращане на съобщение`));
+      .catch(err => this.alertService.error(`Грешка при изпращане на съобщение ${err}`));
   }
 
 }
