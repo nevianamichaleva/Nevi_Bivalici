@@ -20,10 +20,14 @@ myForm: FormGroup;
     this.myForm = this.fb.group({
       email: '',
       name: '',
-      notes: ''
+      notes: '',
+      date:''
     });
   }
   onSent() {
+    let currentdate = new Date();
+    this.myForm.patchValue({ date: currentdate.toString() });
+
     this.publicationsService.createNewContactMessage(this.myForm.value)
       .then(() => {
         this.alertService.success('Съобщението е изпратено', true);

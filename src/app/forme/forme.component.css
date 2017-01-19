@@ -1,0 +1,28 @@
+h1 {
+    color: limegreen;
+}
+
+h4 {
+    margin-top: 1.250em;
+    color: olivedrab;
+    font-style: italic;
+}
+
+a {
+    color: limegreen;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.875em;
+    text-align: justify;
+    font-size: 1.250em;
+    text-indent: 3.125em;
+}
+
+.entry {
+    margin: 1.875em 1.875em 0 0;
+}

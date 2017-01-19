@@ -1,3 +1,4 @@
+import { FormeComponent } from './forme/forme.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { LoginComponent } from './shared/auth/login/login.component';
 import { CategoryComponent } from './category/category.component';
@@ -8,12 +9,13 @@ import { PublicationsComponent } from './publications/publications.component';
 import { NewPublicationComponent } from './new-publication/new-publication.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MessagesComponent } from './messages/messages.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'addnewpublication', component: PostFormComponent, canActivate: [AuthGuard] },
     { path: 'home', component: PublicationsComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'forme', component: FormeComponent},
     {
         path: 'publication',
         children: [
@@ -21,7 +23,9 @@ const routes: Routes = [
         ]
     },
     { path: 'category/:id/:name', component: CategoryComponent },
-    { path: 'loginforadmin', component: LoginComponent}
+    { path: 'loginforadmin', component: LoginComponent },
+    { path: 'addnewpublication', component: PostFormComponent, canActivate: [AuthGuard] },
+    { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

@@ -5,7 +5,8 @@ export class Message {
         public $key: string,
         public email: string,
         public name: string,
-        public notes: string
+        public notes: string,
+        public date: string
        ) { }
 
     static fromJsonList(array): Message[] {
@@ -16,12 +17,13 @@ export class Message {
         return json.map(Message.fromJson);
     }
 
-    static fromJson({$key, email, name, notes}): Message {
+    static fromJson({$key, email, name, notes, date}): Message {
         return new Message(
             $key,
             email,
             name,
-            notes
+            notes,
+            date
             );
     }
 }

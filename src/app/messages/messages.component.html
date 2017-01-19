@@ -1,0 +1,20 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-12 l-12">
+            <h1 class="title">Съобщения</h1>
+            <hr />
+        </div>
+        <div class="s-12 l-12">
+            <div class="message" *ngFor="let message of (messages | async)">
+                <span><i class="icon-user" aria-hidden="true"></i></span>
+                <p>{{message.name}}</p>
+                <span><i class="icon-mail" aria-hidden="true"></i></span>
+                <p>{{message.email}}</p>
+                <h3>{{message.notes}}</h3>
+                <span><i class="icon-calendar" aria-hidden="true"></i></span>
+                <p>{{message.date | date:"dd.MM.yyyy г."}}</p>
+                <button (click)="onDelete(message.$key)">Изтрий</button>
+            </div>
+        </div>
+    </div>
+</section>

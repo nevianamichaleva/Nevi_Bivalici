@@ -25,6 +25,7 @@
                                     <div class="s-12"><input formControlName="email" #email placeholder="Вашият e-mail" title="Your e-mail" type="text" /></div>
                                     <div class="s-12"><input formControlName="name" #name placeholder="Вашето име" title="Your name" type="text" /></div>
                                     <div class="s-12"><textarea formControlName="notes" #notes placeholder="Вашето съобщение" name="" rows="5"></textarea></div>
+                                    <div class="hidden"><input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control"></div>
                                     <button type="submit">Изпрати</button>
                                 </form>
                             </div>

@@ -1,0 +1,25 @@
+.message {
+    border-bottom: 2px solid blanchedalmond;
+    margin: 0.625em 0 0.625em 0;
+    padding: 0.313em 1.875em 0.938em 2.500em;
+}
+
+.message p {
+    display: inline-block;
+    font-size: 1.250em;
+    color: blanchedalmond;
+    margin-right: 0.500em;
+}
+
+.message label {
+    font-size: 1.250em;
+    color: blanchedalmond;
+}
+
+.message h3 {
+    color: yellowgreen;
+}
+
+.message button {
+    float: right;
+}

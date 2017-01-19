@@ -31,6 +31,8 @@ import { ContactComponent } from './contact/contact.component';
 import { PublicationDetailComponent } from './publication-detail/publication-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { LoginComponent } from './shared/auth/login/login.component';
+import { MessagesComponent } from './messages/messages.component';
+import { FormeComponent } from './forme/forme.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { LoginComponent } from './shared/auth/login/login.component';
     PublicationDetailComponent,
     CategoryComponent,
     AlertComponent,
-    LoginComponent
+    LoginComponent,
+    MessagesComponent,
+    FormeComponent
   ],
   imports: [
     BrowserModule,

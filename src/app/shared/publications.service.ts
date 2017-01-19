@@ -1,3 +1,4 @@
+import { Message } from './../model/message.model';
 import { Category } from './../model/category.model';
 import { Injectable, Inject } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2';
@@ -26,6 +27,11 @@ export class PublicationsService {
     findAllCategories(): Observable<Category[]> {
         return this.db.getCollection('category')
             .map(Category.fromJsonArray);
+    }
+
+    findAllMessages(): Observable<Message[]> {
+        return this.db.getCollection('messages')
+            .map(Message.fromJsonArray);
     }
 
     findLastestPublications(count = 5) {
@@ -87,5 +93,6 @@ export class PublicationsService {
         return this.db.getCollection('publications', { query })
             .map(Publication.fromJsonArray);
     }
+
 
 }
