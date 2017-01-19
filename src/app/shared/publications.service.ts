@@ -36,7 +36,9 @@ export class PublicationsService {
 
     findLastestPublications(count = 5) {
         let query = {
-            limitToLast: count
+            limitToLast: count,
+            orderByChild: 'status',
+            equalTo: true
         };
         return this.db.getCollection('publications', { query })
             .map(Publication.fromJsonArray);
@@ -94,5 +96,8 @@ export class PublicationsService {
             .map(Publication.fromJsonArray);
     }
 
+    changeStatusPublication(key: string, stat: boolean): firebase.Promise<void> {
+        return this.db.updateItem(`publications/${key}`, { status: !stat });
+    }
 
 }

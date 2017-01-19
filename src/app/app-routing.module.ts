@@ -1,3 +1,4 @@
+import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
 import { FormeComponent } from './forme/forme.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { LoginComponent } from './shared/auth/login/login.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: 'category/:id/:name', component: CategoryComponent },
     { path: 'loginforadmin', component: LoginComponent },
     { path: 'addnewpublication', component: PostFormComponent, canActivate: [AuthGuard] },
+    { path: 'admin_publication', component: AdminPublicationsComponent, canActivate: [AuthGuard] },
     { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] }
 ];
 

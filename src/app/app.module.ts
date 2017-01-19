@@ -33,6 +33,7 @@ import { CategoryComponent } from './category/category.component';
 import { LoginComponent } from './shared/auth/login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FormeComponent } from './forme/forme.component';
+import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormeComponent } from './forme/forme.component';
     AlertComponent,
     LoginComponent,
     MessagesComponent,
-    FormeComponent
+    FormeComponent,
+    AdminPublicationsComponent
   ],
   imports: [
     BrowserModule,

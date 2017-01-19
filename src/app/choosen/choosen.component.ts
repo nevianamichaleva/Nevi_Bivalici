@@ -14,7 +14,7 @@ publications: Observable<Publication[]>;
   constructor(private publicationsService: PublicationsService) { }
 
   ngOnInit() {
-    this.publications = this.publicationsService.findAllPublications();
+    this.publications = this.publicationsService.findLastestPublications();
   }
 
 }

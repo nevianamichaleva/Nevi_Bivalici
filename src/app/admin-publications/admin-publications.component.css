@@ -1,0 +1,31 @@
+.publications {
+    border-bottom: 2px solid blanchedalmond;
+    margin: 0.625em 0 0.625em 0;
+    padding: 0.313em 1.875em 0.938em 2.500em;
+}
+
+.publications p {
+    display: inline-block;
+    font-size: 1.250em;
+    color: blanchedalmond;
+    margin-right: 0.500em;
+}
+
+.publications label {
+    font-size: 1.250em;
+    color: blanchedalmond;
+}
+
+.publications h3 {
+    color: yellowgreen;
+}
+
+.publications button {
+    font-size: 1em;
+    margin-top: 0.500em;
+}
+
+.red {
+    color: orangered;
+    font-weight: bold;
+}

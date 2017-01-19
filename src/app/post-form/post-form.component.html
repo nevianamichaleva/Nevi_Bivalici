@@ -45,7 +45,7 @@
                             </div>
                             <!-- /.col-lg-6 -->
                         </div>
-                        <a (click)="showStyle = !showStyle;">Добави категория</a>
+                        <a *ngIf="!showStyle" (click)="showStyle = !showStyle;">Добави категория</a>
                     </div>
                 </div>
                 <div class="form-group">
@@ -57,6 +57,9 @@
                 </div>
                 <div class="hidden">
                     <input formControlName="date" (value)="date.value" type="text" id="date" #date class="form-control">
+                </div>
+                <div class="hidden">
+                    <input formControlName="status" (value)="status.value" type="text" id="status" #status class="form-control">
                 </div>
                 <div class="form-group ">
                     <button class="btn" type="submit">Запиши</button>

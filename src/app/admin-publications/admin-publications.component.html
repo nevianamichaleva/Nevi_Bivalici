@@ -1,0 +1,24 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-12 l-12">
+            <h1 class="title">Публикации</h1>
+            <hr />
+        </div>
+        <div class="s-12 l-12">
+            <div class="publications" *ngFor="let publication of (publications | async)">
+                <span><i class="icon-attachment" aria-hidden="true"></i></span>
+                <p>{{publication.title}}</p>
+                <span><i class="icon-calendar" aria-hidden="true"></i></span>
+                <p>{{publication.date | date:"dd.MM.yyyy г."}}</p>
+                <span class="red" *ngIf="!publication.status"><i class="icon-cancel_circle" aria-hidden="true"></i> Чернова</span>
+                <div>
+                    <button [routerLink]="['/edit', publication.$key]">Редактиране</button>
+                    <button [routerLink]="['/publication', publication.$key]">Визуализиране</button>
+                    <button *ngIf="!publication.status" (click)="onStatusChange(publication.$key, publication.status)">Публикуване</button>
+                    <button *ngIf="publication.status" (click)="onStatusChange(publication.$key, publication.status)">Чернова</button>
+                    <!-- <button (click)="onDelete(publication.$key)">Изтриване</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -43,7 +43,8 @@ export class PostFormComponent implements OnInit {
       category: '',
       content: '',
       choosen: '',
-      date: ''
+      date: '',
+      status
     });
   }
 
@@ -83,13 +84,10 @@ export class PostFormComponent implements OnInit {
 
   onSubmit() {
     let currentdate = new Date();
-    //console.log(currentdate.toString());
-    //let datetime = currentdate.getDate() + '/'
-    //  + (currentdate.getMonth() + 1) + '/'
-    //  + currentdate.getFullYear();
-  
+    
     this.myDBForm.patchValue({ date: currentdate.toString() });
     this.myDBForm.patchValue({ content: this.tinyBody });
+    this.myDBForm.patchValue({ status: false });
     this.myDBForm.patchValue({ category: this.category });
 
     if (this.selectedFile) {

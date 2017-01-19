@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-publications',
   templateUrl: './publications.component.html',
-  styleUrls: ['./publications.component.css'],
-  providers: [PublicationsService]
+  styleUrls: ['./publications.component.css']
 })
 export class PublicationsComponent implements OnInit {
 publications: Observable<Publication[]>;

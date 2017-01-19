@@ -2,7 +2,7 @@
     <div class="margin">
         <!-- ARTICLES -->
         <div *ngFor="let publication of (publications | async)" class="s-12 l-12">
-            <div class="detail">
+            <div *ngIf="publication.status" class="detail">
                 <h1>{{publication.title}}</h1>
                 <div [innerHTML]="publication.content | sanitizeHtml"></div>
                 <h4>Публикувано на: {{publication.date | date:"dd.MM.yyyy г."}}</h4>

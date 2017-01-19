@@ -8,7 +8,8 @@ export class Publication {
         public category: string,
         public content: string,
         public date: string,
-        public choosen: boolean
+        public choosen: boolean,
+        public status: boolean
        ) { }
 
     static fromJsonList(array): Publication[] {
@@ -19,7 +20,7 @@ export class Publication {
         return json.map(Publication.fromJson);
     }
 
-    static fromJson({$key, title, image, category, content, date, choosen}): Publication {
+    static fromJson({$key, title, image, category, content, date, choosen, status}): Publication {
         return new Publication(
             $key,
             title,
@@ -27,7 +28,8 @@ export class Publication {
             category,
             content,
             date,
-            choosen
+            choosen,
+            status
             );
     }
 }
