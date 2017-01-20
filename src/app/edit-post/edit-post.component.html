@@ -1,0 +1,59 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <div class="s-12 l-12">
+            <h1 class="title">Редакция на публикация</h1>
+            <hr />
+        </div>
+        <div class="s-12 l-12">
+            <form [formGroup]="myDBForm" class="s-11 customform" (ngSubmit)="onUpdatePost()">
+                <div class="form-group">
+                    <label for="title">Заглавие</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-heart" aria-hidden="true"></i></span>
+                            <input formControlName="title" [ngModel]="(publication | async)?.title" (ngModelChange)="publication.title = $event" type="text" id="title" #title class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image">Снимка</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <img class="img" src="{{(publication | async)?.image}}" alt="{{(publication | async)?.title}}">
+                            <span class="input-group-addon glyphicon glyphicon-picture"></span>
+                            <input formControlName="image" type="file" id="image" #image class="form-control" accept="image/*" (change)="onImageSelected($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Категория</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
+                            <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event)">
+                                <option *ngFor="let category of (categories | async)" [selected]="(publication | async)?.category === category.name">{{category.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="choosen">В избрани</label>
+                    <input formControlName="choosen" type="checkbox" [ngModel]="(publication | async)?.choosen" (ngModelChange)="publication.choosen = $event" id="choosen" #choosen>
+                </div>
+                <div class="form-group">
+                    <text-editor #editor formControlName="content" [elementId]="'post-body'" (onEditorChange)="onBodyTextEditorChange($event)" ngDefaultControl></text-editor>
+
+                </div>
+                <div class="hidden">
+                    <input formControlName="date" [ngModel]="(publication | async)?.date" (ngModelChange)="publication.date = $event" type="text" id="date" #date class="form-control">
+                </div>
+                <div class="hidden">
+                    <input formControlName="status" [ngModel]="(publication | async)?.status" (ngModelChange)="publication.status = $event" type="text" id="status" #status class="form-control">
+                </div>
+                <div class="form-group ">
+                    <button class="btn" type="submit">Запиши</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

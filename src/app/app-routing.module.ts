@@ -11,6 +11,7 @@ import { NewPublicationComponent } from './new-publication/new-publication.compo
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MessagesComponent } from './messages/messages.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
     { path: 'loginforadmin', component: LoginComponent },
     { path: 'addnewpublication', component: PostFormComponent, canActivate: [AuthGuard] },
     { path: 'admin_publication', component: AdminPublicationsComponent, canActivate: [AuthGuard] },
+    { path: 'editpost/:id', component: EditPostComponent, canActivate: [AuthGuard] },
     { path: 'messages', component: MessagesComponent, canActivate: [AuthGuard] }
 ];
 

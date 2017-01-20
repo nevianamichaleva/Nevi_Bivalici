@@ -5,7 +5,7 @@
             <div *ngIf="publication.status" class="detail">
                 <h1>{{publication.title}}</h1>
                 <div [innerHTML]="publication.content | sanitizeHtml"></div>
-                <h4>Публикувано на: {{publication.date | date:"dd.MM.yyyy г."}}</h4>
+                <h4>Публикувано на: {{publication.date | date:"dd.MM.yyyy г."}} в категория {{publication.category}}</h4>
             </div>
         </div>
     </div>

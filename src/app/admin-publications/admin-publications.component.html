@@ -12,7 +12,7 @@
                 <p>{{publication.date | date:"dd.MM.yyyy г."}}</p>
                 <span class="red" *ngIf="!publication.status"><i class="icon-cancel_circle" aria-hidden="true"></i> Чернова</span>
                 <div>
-                    <button [routerLink]="['/edit', publication.$key]">Редактиране</button>
+                    <button [routerLink]="['/editpost', publication.$key]">Редактиране</button>
                     <button [routerLink]="['/publication', publication.$key]">Визуализиране</button>
                     <button *ngIf="!publication.status" (click)="onStatusChange(publication.$key, publication.status)">Публикуване</button>
                     <button *ngIf="publication.status" (click)="onStatusChange(publication.$key, publication.status)">Чернова</button>

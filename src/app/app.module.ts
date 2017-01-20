@@ -1,3 +1,4 @@
+import { SmallCapsPipe } from './shared/pipes/smallcaps.pipe';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { AuthService } from './shared/auth/auth.service';
 import { AlertService } from './shared/alert/alert.service';
@@ -34,6 +35,7 @@ import { LoginComponent } from './shared/auth/login/login.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FormeComponent } from './forme/forme.component';
 import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { AdminPublicationsComponent } from './admin-publications/admin-publicati
     PublicationCardComponent,
     PointsPipe,
     SanitizeHtmlPipe,
+    SmallCapsPipe,
     ContactComponent,
     PublicationDetailComponent,
     CategoryComponent,
@@ -54,7 +57,8 @@ import { AdminPublicationsComponent } from './admin-publications/admin-publicati
     LoginComponent,
     MessagesComponent,
     FormeComponent,
-    AdminPublicationsComponent
+    AdminPublicationsComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

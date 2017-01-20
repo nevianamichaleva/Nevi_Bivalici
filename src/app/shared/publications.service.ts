@@ -19,6 +19,11 @@ export class PublicationsService {
         private http: Http
     ) { this.sdkDb = fb.database().ref();}
 
+    private savePublicationImage(image) {
+        return this.db.saveStorageItem(image.name, image)
+            .then(dbImage => dbImage.downloadURL);
+    }
+
     findAllPublications(): Observable<Publication[]> {
         return this.db.getCollection('publications')
             .map(Publication.fromJsonArray);
@@ -99,5 +104,16 @@ export class PublicationsService {
     changeStatusPublication(key: string, stat: boolean): firebase.Promise<void> {
         return this.db.updateItem(`publications/${key}`, { status: !stat });
     }
+
+    updatePublication(publication: any, newData: any, newImage?: Object) {
+        if (newImage) {
+            return this.savePublicationImage(newImage)
+                .then(imageURL => newData['image'] = imageURL)
+                .then(() => this.db.updateItem(publication, newData));
+        } else {
+            delete newData.image;
+            return this.db.updateItem(publication, newData);
+        }
+    };
 
 }
