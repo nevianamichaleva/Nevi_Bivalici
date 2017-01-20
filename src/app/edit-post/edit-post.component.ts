@@ -78,4 +78,6 @@ export class EditPostComponent implements OnInit {
       .then(() => this.alertService.success('Обявата е редактирана', true))
       .catch(err => this.alertService.error(`Грешка при редакция на обява ${err}`));
   }
+
+  
 }

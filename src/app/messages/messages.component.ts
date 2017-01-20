@@ -24,10 +24,11 @@ export class MessagesComponent implements OnInit {
   }
 
   onDelete(key: string) {
-    //console.log(key);
-    this.db.deleteItemFromCollection('messages', key)
-      .then(() => this.alertService.success('Съобщението е изтрито', true))
-      .catch(err => this.alertService.error(`Грешка при запис ${err}`));
+    let answer = confirm("Потвърдете изтриването на публикацията!");
+    if (answer == true) {
+      this.db.deleteItemFromCollection('messages', key)
+        .then(() => this.alertService.success('Съобщението е изтрито', true))
+        .catch(err => this.alertService.error(`Грешка при запис ${err}`));
+    }
   }
-
 }

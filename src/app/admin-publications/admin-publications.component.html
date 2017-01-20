@@ -16,7 +16,7 @@
                     <button [routerLink]="['/publication', publication.$key]">Визуализиране</button>
                     <button *ngIf="!publication.status" (click)="onStatusChange(publication.$key, publication.status)">Публикуване</button>
                     <button *ngIf="publication.status" (click)="onStatusChange(publication.$key, publication.status)">Чернова</button>
-                    <!-- <button (click)="onDelete(publication.$key)">Изтриване</button>-->
+                    <button (click)="onDelete(publication.$key)">Изтриване</button>
                 </div>
             </div>
         </div>
