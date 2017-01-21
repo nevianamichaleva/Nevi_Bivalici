@@ -5,13 +5,14 @@
     margin: 0;
 }
 
-body {
+
+/*body {
     background: none repeat scroll 0 0 #d3d3d3;
     font-size: 100%;
     margin: 0;
     font-family: "Open Sans", Arial, sans-serif;
     color: #444;
-}
+}*/
 
 h1,
 h2,
@@ -172,7 +173,7 @@ nav:after,
 }
 
 .top-nav li a {
-    padding: 1.25em;
+    padding: 2em 1.25em 2.65em 1.25em;
     display: block;
     color: #fff;
 }
@@ -185,7 +186,7 @@ nav:after,
 
 .top-nav li a:hover,
 .aside-nav li a:hover {
-    background: #999;
+    background: #283D5F;
 }
 
 .top-nav li ul {
