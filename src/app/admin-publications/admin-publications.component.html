@@ -5,7 +5,7 @@
             <hr />
         </div>
         <div class="s-12 l-12">
-            <div class="publications" *ngFor="let publication of (publications | async)">
+            <div class="publications" *ngFor="let publication of (publications | async | sort:'-$key')">
                 <span><i class="icon-attachment" aria-hidden="true"></i></span>
                 <p>{{publication.title}}</p>
                 <span><i class="icon-calendar" aria-hidden="true"></i></span>

@@ -15,6 +15,7 @@
                         <a>Категории</a>
                         <ul>
                             <li *ngFor="let category of (categories | async)"><a routerLink="/category/{{category.$key}}/{{category.name}}" routerLinkActive="active">{{category.name}}</a></li>
+                            <li><a routerLink="/category/all">Всички</a></li>
                         </ul>
                     </li>
                     <li>

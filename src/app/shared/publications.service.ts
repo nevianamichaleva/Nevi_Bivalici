@@ -25,6 +25,10 @@ export class PublicationsService {
     }
 
     findAllPublications(): Observable<Publication[]> {
+        let query = {
+            orderByChild: 'status',
+            equalTo: true
+        };
         return this.db.getCollection('publications')
             .map(Publication.fromJsonArray);
     }
@@ -42,6 +46,15 @@ export class PublicationsService {
     findLastestPublications(count = 5) {
         let query = {
             limitToLast: count,
+            orderByChild: 'status',
+            equalTo: true
+        };
+        return this.db.getCollection('publications', { query })
+            .map(Publication.fromJsonArray);
+    }
+
+    findChoosenPublications() {
+        let query = {
             orderByChild: 'status',
             equalTo: true
         };
