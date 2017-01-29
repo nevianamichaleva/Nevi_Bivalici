@@ -1,9 +1,10 @@
-<div>
-    <img [src]="publication.image" alt="{{publication.title}}">
-    <div class="caption">
-        <h4 class="text-ellipsis">
-            <a [routerLink]="['/publication', publication.$key]" title="{{publication.title}}">{{publication.title}}</a>
-        </h4>
-        <p><strong>Дата на публикуване: </strong>{{publication.date | date:"dd.MM.yyyy г."}}</p>
+<div class="s-12 l-3 img">
+    <div class="upper">
+        <a [routerLink]="['/publication', publication.$key]">
+            <img [src]="publication.image" alt="{{publication.title}}">
+        </a>
     </div>
+    <a [routerLink]="['/publication', publication.$key]">
+        <div class="desc">{{publication.title}}</div>
+    </a>
 </div>

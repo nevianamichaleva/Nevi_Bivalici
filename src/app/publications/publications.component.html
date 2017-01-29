@@ -19,12 +19,13 @@
                 <h3>Резултати от търсенето</h3>
                 <div>
                     <div *ngFor="let publication of (searchpublications | async | filterBy: searchText)">
-                        <publication-card class="s-12 l-3" [publication]="publication"></publication-card>
+                        <publication-card [publication]="publication"></publication-card>
                     </div>
                 </div>
             </div>
         </div>
         <!-- ARTICLES -->
+        <div class="clearfix"></div>
         <div class="s-12 l-9">
             <h3>Последни публикации</h3>
             <article *ngFor="let publication of (publications | async | sort:'-$key'); let i = index" [ngClass]="{'right-align': i%2 === 0}" class="post-{{i+1}} line">
