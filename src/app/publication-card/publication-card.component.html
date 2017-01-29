@@ -1,12 +1,9 @@
-<div class="thumbnail">
-    <img [src]="publication.image">
+<div>
+    <img [src]="publication.image" alt="{{publication.title}}">
     <div class="caption">
         <h4 class="text-ellipsis">
-            <a href="#" title="{{publication.title}}">{{publication.title}}</a>
+            <a [routerLink]="['/publication', publication.$key]" title="{{publication.title}}">{{publication.title}}</a>
         </h4>
-        <p><strong>Дата на публикуване: </strong>{{publication.date}}</p>
-        <p>
-            <a href="#">Виж повече &raquo;</a>
-        </p>
+        <p><strong>Дата на публикуване: </strong>{{publication.date | date:"dd.MM.yyyy г."}}</p>
     </div>
 </div>

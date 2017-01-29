@@ -1,0 +1,12 @@
+<section id="home-section" class="line">
+    <div class="margin">
+        <!-- ARTICLES -->
+        <div *ngFor="let publication of (publications | async | sort:'-$key')" class="s-12 l-12">
+            <div *ngIf="publication.status" class="detail">
+                <h1>{{publication.title}}</h1>
+                <div [innerHTML]="publication.content | sanitizeHtml"></div>
+                <h4>Публикувано на: {{publication.date | date:"dd.MM.yyyy г."}} в категория {{publication.category}}</h4>
+            </div>
+        </div>
+    </div>
+</section>

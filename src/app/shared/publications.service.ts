@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs/Rx';
 import { Publication } from '../model/publication.model';
 import { FirebaseListFactoryOpts } from 'angularfire2/interfaces';
 import { DataService } from './data.service';
-import { Http } from '@angular/http';
+import { Http, Jsonp, URLSearchParams } from '@angular/http';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, FirebaseRef } from 'angularfire2';
 import { database } from 'firebase';
 
@@ -25,10 +25,7 @@ export class PublicationsService {
     }
 
     findAllPublications(): Observable<Publication[]> {
-        let query = {
-            orderByChild: 'status',
-            equalTo: true
-        };
+    
         return this.db.getCollection('publications')
             .map(Publication.fromJsonArray);
     }
@@ -128,5 +125,4 @@ export class PublicationsService {
             return this.db.updateItem(publication, newData);
         }
     };
-
 }

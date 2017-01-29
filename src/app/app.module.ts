@@ -1,3 +1,4 @@
+import { PublicationFilterByPipe } from './shared/pipes/filter.pipe';
 import { SortPipe } from './shared/pipes/sort.pipe';
 import { SmallCapsPipe } from './shared/pipes/smallcaps.pipe';
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -38,6 +39,7 @@ import { FormeComponent } from './forme/forme.component';
 import { AdminPublicationsComponent } from './admin-publications/admin-publications.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { PublicationAllComponent } from './publication-all/publication-all.component';
+import { FoundPublicationsComponent } from './found-publications/found-publications.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { PublicationAllComponent } from './publication-all/publication-all.compo
     ChoosenComponent,
     PublicationCardComponent,
     PointsPipe,
+    PublicationFilterByPipe,
     SanitizeHtmlPipe,
     SmallCapsPipe,
     SortPipe,
@@ -62,7 +65,8 @@ import { PublicationAllComponent } from './publication-all/publication-all.compo
     FormeComponent,
     AdminPublicationsComponent,
     EditPostComponent,
-    PublicationAllComponent
+    PublicationAllComponent,
+    FoundPublicationsComponent
   ],
   imports: [
     BrowserModule,
