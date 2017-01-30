@@ -23,6 +23,7 @@ export class FoundPublicationsComponent implements OnInit {
       .subscribe((params: Params) => {
         this.searchText = params['text'] || '';
       });
+     
       this.searchpublications = this.publicationService.findChoosenPublications();
   }
 

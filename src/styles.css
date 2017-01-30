@@ -417,3 +417,7 @@ address p {
 .hidden {
     display: none;
 }
+
+.clearfix {
+    clear: both;
+}

@@ -14,7 +14,6 @@ export class PublicationsComponent implements OnInit {
   @Input() isFiltred: boolean;
   @Input() searchText: string;
   publications: Observable<Publication[]>;
-  searchRes: Observable<Publication[]>;
   searchStr: string;
 
   constructor(private publicationsService: PublicationsService,

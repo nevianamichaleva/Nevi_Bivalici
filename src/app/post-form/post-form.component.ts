@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AlertService } from './../shared/alert/alert.service';
 import { Category } from './../model/category.model';
 import { PublicationsService } from './../shared/publications.service';
@@ -19,18 +20,19 @@ export class PostFormComponent implements OnInit {
   selectedFile: any;
   category: string;
   categories: Observable<Category[]>;
-  showStyle: false;
+  showStyle: boolean;
   newCategory: string;
 
   constructor(
     private fb: FormBuilder, 
     private publicationsService: PublicationsService, 
-    private alertService: AlertService
+    private alertService: AlertService,
+    private router: Router
     ) { }
 
   ngOnInit() {
     this.category = "Шиене";
-
+    this.showStyle = false;
     this.categories = this.publicationsService.findAllCategories();
 
     this.categoryForm = this.fb.group({
@@ -74,12 +76,11 @@ export class PostFormComponent implements OnInit {
   onCategoryAdd() {
     this.categoryForm.patchValue({ name: this.newCategory });
     this.publicationsService.createNewCategory(this.categoryForm.value)
-      .subscribe(
+      .then(
       () => {
         this.alertService.success('Категорията е записана', true);
-      },
-      err => this.alertService.error(`Грешка при запис ${err}`)
-      )
+      })
+      .catch(err => this.alertService.error(`Грешка при запис ${err}`))
   }
 
   onSubmit() {
@@ -102,26 +103,27 @@ export class PostFormComponent implements OnInit {
         .then(snapshot => {
           this.myDBForm.value.image = snapshot.downloadURL;
           this.publicationsService.createNewPublication(this.myDBForm.value)
-            .subscribe(
+            .then(
             () => {
               this.alertService.success('Публикацията е записана', true);
               this.myDBForm.reset();
               tinymce.activeEditor.setContent('');
-            },
-            err => this.alertService.error(`Грешка при запис ${err}`)
-            )
+            })
+            .catch(err => this.alertService.error(`Грешка при запис ${err}`))
         });
     } else {
       this.publicationsService.createNewPublication(this.myDBForm.value)
-        .subscribe(
+        .then(
         () => {
-          this.alertService.success('Публикацията е записана');
+          this.alertService.success('Публикацията е записана', true);
           this.myDBForm.reset();
           tinymce.activeEditor.setContent('');
-        },
-        err => this.alertService.error(`Грешка при запис ${err}`)
-        )
+          this.router.navigate(['/admin_publication']);
+        })
+        .catch(err => this.alertService.error(`Грешка при запис ${err}`))
     }
   }
-
+  onStyle() {
+    this.showStyle = !this.showStyle;
+  }
 }

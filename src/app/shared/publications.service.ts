@@ -12,12 +12,10 @@ import { database } from 'firebase';
 
 @Injectable()
 export class PublicationsService {
-    sdkDb: any;
 
-    constructor(private db: DataService,
-    @Inject(FirebaseRef) fb,
-        private http: Http
-    ) { this.sdkDb = fb.database().ref();}
+    constructor(
+        private db: DataService
+    ) { }
 
     private savePublicationImage(image) {
         return this.db.saveStorageItem(image.name, image)
@@ -64,38 +62,12 @@ export class PublicationsService {
             .map(Publication.fromJson);
     }
 
-    createNewCategory(category: any): Observable<any> {
-        const subject = new Subject();
-        this.sdkDb.child('category').push(category)
-        .then(
-            val => {
-                subject.next(val);
-                subject.complete();
-
-            },
-            err => {
-                subject.error(err);
-                subject.complete();
-            }
-            );
-        return subject.asObservable();
+    createNewCategory(category: any): firebase.database.ThenableReference {   
+        return this.db.addItemToCollection('category', category)
     }
 
-    createNewPublication(publication: any): Observable<any> {
-        const subject = new Subject();
-        this.sdkDb.child('publications').push(publication)
-        .then(
-            val => {
-                subject.next(val);
-                subject.complete();
-
-            },
-            err => {
-                subject.error(err);
-                subject.complete();
-            }
-            );
-        return subject.asObservable();
+    createNewPublication(publication: any): firebase.database.ThenableReference {
+        return this.db.addItemToCollection('publications', publication);
     }
 
     createNewContactMessage(msg: any): firebase.database.ThenableReference {

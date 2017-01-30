@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="choosen">В избрани</label>
+                    <label>В избрани</label>
                     <input formControlName="choosen" type="checkbox" [ngModel]="(publication | async)?.choosen" (ngModelChange)="publication.choosen = $event" id="choosen" #choosen>
                 </div>
                 <div class="form-group">

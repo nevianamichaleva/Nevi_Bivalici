@@ -30,8 +30,8 @@
                         <div class="input-group">
                             <span class="input-group-addon glyphicon glyphicon-paperclip"></span>
                             <select formControlName="category" type="text" id="category" #category class="form-control" (change)="onCategoryChange($event.target.value)">
-                        <option *ngFor="let category of (categories | async)" [value]="category.name">{{category.name}}</option>
-                    </select>
+                                <option *ngFor="let category of (categories | async)" [value]="category.name">{{category.name}}</option>
+                            </select>
                         </div>
                     </div>
                     <div>
@@ -45,11 +45,13 @@
                             </div>
                             <!-- /.col-lg-6 -->
                         </div>
-                        <a *ngIf="!showStyle" (click)="showStyle = !showStyle;">Добави категория</a>
+                        <div *ngIf="!showStyle">
+                            <a (click)="onStyle()">Добави категория</a>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="choosen">В избрани</label>
+                    <label>В избрани</label>
                     <input formControlName="choosen" type="checkbox" id="choosen" #choosen>
                 </div>
                 <div class="form-group">

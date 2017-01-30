@@ -48,7 +48,6 @@
             "../node_modules/tinymce/plugins/table/plugin.js",
             "../node_modules/tinymce/plugins/emoticons/plugin.js",
             "../node_modules/tinymce/plugins/template/plugin.js",
-            "../node_modules/tinymce/plugins/textcolor/plugin.js",
             "../node_modules/tinymce/plugins/colorpicker/plugin.js",
             "../node_modules/tinymce/plugins/textpattern/plugin.js"
         ],
